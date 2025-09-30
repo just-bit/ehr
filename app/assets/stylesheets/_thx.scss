@@ -1,0 +1,102 @@
+.thx-main{
+  position: relative;
+  background: $black;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  >.container{
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    min-height: 600px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .logo{
+      display: block;
+      width: 172px;
+      height: auto;
+      margin: 0 auto 50px;
+      position: relative;
+      z-index: 2;
+    }
+    .bg{
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100vh;
+      background: url("../images/stars-bg.svg") repeat center top;
+      @include bp(sm) {
+        background-size: contain;
+      }
+    }
+    .before{
+      position: absolute;
+      left: -535px;
+      top: -395px;
+    }
+    .after{
+      position: absolute;
+      right: -218px;
+      bottom: -103px;
+    }
+  }
+  .curved-line{
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    width: 560px;
+    height: auto;
+    @media screen and (max-width: 479px) {
+      rotate: -25deg;
+    }
+  }
+}
+
+.thx-content{
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  h1{
+    color: #fff;
+    text-align: center;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0 auto 16px;
+    @include bp(sm) {
+      font-size: 36px;
+    }
+  }
+  p{
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+    @include bp(sm) {
+      font-size: 16px;
+    }
+  }
+  .btn{
+    margin: 50px auto 0;
+    font-size: 18px;
+    gap: 20px;
+    padding-left: 40px;
+    @include bp(xs) {
+      padding-left: 30px;
+      gap: 15px;
+      font-size: 16px;
+      margin-top: 30px;
+    }
+  }
+}

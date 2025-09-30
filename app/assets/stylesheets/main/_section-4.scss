@@ -1,0 +1,65 @@
+.section-approach{
+  background-color: $bg-blue;
+  padding: 100px 0;
+  @include bp(xs) {
+    padding: 60px 0;
+  }
+}
+
+.approach-wrapper{
+  margin-top: 40px;
+  margin-bottom: -40px;
+  @include bp(xs) {
+    margin-top: 25px;
+    margin-bottom: -30px;
+  }
+  > [class^="col"] {
+    margin-bottom: 40px;
+    height: inherit;
+    @include bp(xs) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.approach-item{
+  height: 100%;
+  >i{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    @include bp(xs) {
+      height: 30px;
+      margin-bottom: 10px;
+    }
+    svg{
+      max-height: 100%;
+      width: auto;
+    }
+  }
+  >span{
+    display: block;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $border;
+    @include bp(xs) {
+      font-size: 20px;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+  }
+  >div{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    @include bp(xs) {
+      font-size: 16px;
+    }
+  }
+}

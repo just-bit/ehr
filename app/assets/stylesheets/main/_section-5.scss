@@ -1,0 +1,43 @@
+.section-faq {
+	padding-top: 120px;
+	padding-bottom: 100px;
+	border-bottom: 1px solid $border;
+	@include bp(xs) {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	.section-title {
+		margin-bottom: 40px;
+		@include bp(xs) {
+			margin-bottom: 25px;
+		}
+	}
+}
+
+.faq-list {
+	.accordion-item__head {
+		margin-left: 10px;
+		padding: 24px 40px;
+		font-size: 20px;
+		box-shadow: -10px 0 0 0 $blue;
+		color: $black;
+		@include bp(xs) {
+			padding: 8px 15px;
+			font-size: 16px;
+		}
+		&:hover{
+			box-shadow: -10px 0 0 0 $green;
+		}
+		> span {
+			background-color: $bg-grey;
+		}
+	}
+
+	.accordion-item__body {
+		padding: 27px 40px;
+		@include bp(xs) {
+			padding: 18px 15px;
+			font-size: 14px;
+		}
+	}
+}

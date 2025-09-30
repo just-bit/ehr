@@ -1,0 +1,70 @@
+.section-settings{
+  background-color: $bg-blue;
+  padding: 100px 0;
+  @include bp(xs) {
+    padding: 60px 0;
+  }
+  +.section-approach{
+    border-top: 1px solid $border;
+  }
+}
+
+.settings-wrapper{
+  margin-top: 40px;
+  margin-bottom: -20px;
+  @include bp(xs) {
+    margin-top: 25px;
+    margin-bottom: -15px;
+  }
+  > [class^="col"] {
+    padding: 0 10px 20px;
+    height: inherit;
+    @include bp(xs) {
+      padding-bottom: 15px;
+    }
+  }
+}
+
+.settings-item{
+  height: 100%;
+  min-height: 324px;
+  border-radius: 10px;
+  border: 1px solid $border;
+  background-color: #fff;
+  padding: 20px;
+  >i{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    @include bp(xs) {
+      height: 30px;
+    }
+    svg{
+      max-height: 100%;
+      width: auto;
+    }
+  }
+  >span{
+    display: block;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    margin-bottom: 15px;
+  }
+  >ul{
+    color: $text;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    list-style-type: disc;
+    padding-left: 24px;
+    li{
+      &::marker{
+        font-size: smaller;
+      }
+    }
+  }
+}
