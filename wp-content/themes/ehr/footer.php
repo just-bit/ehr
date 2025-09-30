@@ -42,51 +42,58 @@
             <div class="footer-main__menu">
                 <div class="footer-menu">
                     <span>Product Suites</span>
-                    <ul>
-                        <li><a href="javascript:void(0)">CRM & Client Engagement</a></li>
-                        <li><a href="javascript:void(0)">Front Office Operations</a></li>
-                        <li><a href="javascript:void(0)">Documentation & Clinical Care</a></li>
-                        <li><a href="javascript:void(0)">Workforce Management</a></li>
-                        <li><a href="javascript:void(0)">Operations & Productivity</a></li>
-                        <li><a href="javascript:void(0)">Billing & Revenue Cycle</a></li>
-                        <li><a href="javascript:void(0)">Compliance & Connectivity</a></li>
-                        <li><a href="javascript:void(0)">Reporting</a></li>
-                        <li><a href="javascript:void(0)">AI-Powered Tools</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'footer_menu_1',
+                        'container' => false,
+                        'depth' => 1
+                    ]);
+                    ?>
                 </div>
                 <div class="footer-menu">
                     <span>Customers</span>
-                    <ul>
-                        <li><a href="javascript:void(0)">Behavioral Health</a></li>
-                        <li><a href="javascript:void(0)">Inpatient</a></li>
-                        <li><a href="javascript:void(0)">Medical Practices</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'footer_menu_2',
+                        'container' => false,
+                        'depth' => 1
+                    ]);
+                    ?>
                 </div>
                 <div class="footer-menu">
                     <span>About Us</span>
-                    <ul>
-                        <li><a href="javascript:void(0)">Our Company</a></li>
-                        <li><a href="javascript:void(0)">Careers</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'footer_menu_3',
+                        'container' => false,
+                        'depth' => 1
+                    ]);
+                    ?>
                 </div>
                 <div class="footer-menu">
                     <span>Contact Us</span>
-                    <ul>
-                        <li><a href="javascript:void(0)">Request a demo</a></li>
-                        <li><a href="javascript:void(0)">Sign In</a></li>
-                        <li><a href="javascript:void(0)">Support</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'footer_menu_4',
+                        'container' => false,
+                        'depth' => 1
+                    ]);
+                    ?>
                 </div>
             </div>
         </div>
     </div>
     <div class="footer-bot">
         <div class="container">
-            <span class="footer-bot__copyright">&copy; 2025 EHR. All Rights Reserved</span>
-            <ul class="footer-bot__menu">
-                <li><a href="javascript:void(0)">Terms of Service</a></li>
-                <li><a href="javascript:void(0)">Privacy Policy</a></li>
-            </ul>
+            <span class="footer-bot__copyright">&copy; <?=date('Y')?> EHR. All Rights Reserved</span>
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'footer_menu_bottom',
+                'menu_class' => 'footer-bot__menu',
+                'container' => false,
+                'depth' => 1
+            ]);
+            ?>
         </div>
     </div>
 </footer>
