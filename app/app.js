@@ -70,4 +70,6 @@ $(function () {
         }
     });
 
+    $(".header-menu, .mobile-menu").find('a:not([href])').attr('href', 'javascript:void(0)');
+
 });
