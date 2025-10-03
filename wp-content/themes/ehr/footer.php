@@ -6,7 +6,7 @@
                     <img src="<?= get_template_directory_uri() ?>/images/footer-logo.png" loading="lazy" alt="logo">
                 </div>
                 <div class="footer-contacts">
-                    <a href="info@ehryourway.com">
+                    <a href="mailto:info@ehryourway.com">
                         <i>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_622_383)">
