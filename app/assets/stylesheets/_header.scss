@@ -8,13 +8,15 @@
 	z-index: 99;
 	background-color: #fff;
 	box-shadow: $shadow;
+
 	&.fixed {
 	}
 }
 
-.header-top{
+.header-top {
 	background-color: $blue;
-	>.container{
+
+	> .container {
 		height: 38px;
 		display: flex;
 		align-items: center;
@@ -25,7 +27,7 @@
 	}
 }
 
-.header-top__links{
+.header-top__links {
 	display: flex;
 	align-items: center;
 	gap: 20px;
@@ -38,13 +40,15 @@
 		font-size: 14px;
 		gap: 16px;
 	}
-	li{
-		a{
+
+	li {
+		a {
 			display: flex;
 			align-items: center;
 			gap: 5px;
 			color: #fff;
-			&:hover{
+
+			&:hover {
 				color: #fff;
 				opacity: .8;
 			}
@@ -52,8 +56,8 @@
 	}
 }
 
-.header-main{
-	>.container{
+.header-main {
+	> .container {
 		height: 100px;
 		display: flex;
 		align-items: center;
@@ -70,14 +74,15 @@
 	@include bp(lg) {
 		width: 180px;
 	}
-	img{
+
+	img {
 		width: 100%;
 		height: auto;
 		aspect-ratio: 240 / 50;
 	}
 }
 
-.header-menu{
+.header-menu {
 	display: flex;
 	gap: 25px;
 	text-align: center;
@@ -91,29 +96,36 @@
 	@include bp(md) {
 		display: none;
 	}
-	>li{
-		&.menu-item-has-children{
+
+	> li {
+		&.menu-item-has-children {
 			position: relative;
-			&:hover{
-				>a{
+
+			&:hover {
+				> a {
 					color: $light-blue;
-					svg{
+
+					svg {
 						transform: scale(1, -1);
-						path{
+
+						path {
 							fill: $light-blue;
 						}
 					}
 				}
-				.submenu{
+
+				.submenu {
 					opacity: 1;
 					visibility: visible;
 					transform: translateX(-50%) translateY(0);
 				}
 			}
-			>a{
+
+			> a {
 				gap: 7px;
 			}
-			.submenu{
+
+			.submenu {
 				width: max-content;
 				position: absolute;
 				left: 50%;
@@ -127,7 +139,8 @@
 				visibility: hidden;
 				transition: linear .2s;
 				text-align: left;
-				&:before{
+
+				&:before {
 					position: absolute;
 					content: '';
 					height: 24px;
@@ -135,63 +148,74 @@
 					left: 0;
 					top: -24px;
 				}
-				>ul{
+
+				> ul {
 					position: relative;
 					padding: 20px 0;
 					background-color: #fff;
 					border-radius: 10px;
 					filter: drop-shadow(0 4px 20px rgba(116, 116, 117, 0.15));
-					>li{
-						&:not(.menu-item-has-children){
-							>a{
-								svg{
-									&:last-child:not(:first-child){
+
+					> li {
+						&:not(.menu-item-has-children) {
+							> a {
+								svg {
+									&:last-child:not(:first-child) {
 										display: none;
 									}
 								}
 							}
 						}
-						&:hover{
-							>ul{
+
+						&:hover {
+							> ul {
 								opacity: 1;
 								visibility: visible;
 							}
-							>a{
+
+							> a {
 								color: $light-blue;
-								svg{
-									&:last-child:not(:first-child){
-										path{
+
+								svg {
+									&:last-child:not(:first-child) {
+										path {
 											fill: $light-blue;
 										}
 									}
 								}
 							}
 						}
-						>a{
+
+						> a {
 							color: $black;
 							padding: 10px 30px;
 							display: flex;
 							align-items: center;
 							gap: 8px;
-							&:hover{
+
+							&:hover {
 								color: $light-blue;
-								svg{
-									&:last-child:not(:first-child){
-										path{
+
+								svg {
+									&:last-child:not(:first-child) {
+										path {
 											fill: $light-blue;
 										}
 									}
 								}
 							}
-							svg, img{
-                              max-width: 26px;
-								&:last-child:not(:first-child){
+
+							svg, img {
+								max-width: 26px;
+
+								&:last-child:not(:first-child) {
 									margin-left: 2px;
 									margin-top: 2px;
 								}
 							}
 						}
-						>ul{
+
+						> ul {
 							position: absolute;
 							left: calc(100% - 1px);
 							border-radius: 0 10px 10px 0;
@@ -204,7 +228,8 @@
 							opacity: 0;
 							visibility: hidden;
 							text-align: left;
-							&:before{
+
+							&:before {
 								position: absolute;
 								content: '';
 								width: 10px;
@@ -215,13 +240,15 @@
 								border-right: 1px solid #F1F5F8;
 								pointer-events: none;
 							}
-							>li{
-								>a{
+
+							> li {
+								> a {
 									display: flex;
 									padding: 7px 30px 8px 30px;
 									color: $black;
 									position: relative;
-									&:hover{
+
+									&:hover {
 										color: $light-blue;
 									}
 								}
@@ -230,32 +257,56 @@
 					}
 				}
 			}
+
+			> .submenu > ul > li > ul > li:last-child {
+				background: #fff;
+				padding-bottom: 10px;
+				border-radius: 0 0 10px 10px;
+			}
 		}
-		>a{
+
+		> a {
 			display: flex;
 			align-items: center;
 			color: $black;
-			&:hover{
+
+			&:hover {
 				color: $light-blue;
-				svg{
+
+				svg {
 					transform: scale(1, -1);
-					path{
+
+					path {
 						fill: $light-blue;
 					}
 				}
 			}
 		}
 	}
+
+	li > a {
+		&:has(>img) {
+			padding: 10px 30px;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		> img {
+			max-width: 26px;
+		}
+	}
 }
 
-.header-right{
+.header-right {
 	display: flex;
 	align-items: center;
 	gap: 20px;
 	@include bp(xs) {
 		gap: 16px;
 	}
-	.search-btn{
+
+	.search-btn {
 		display: flex;
 		align-items: center;
 		gap: 3px;
@@ -269,16 +320,19 @@
 			font-size: 0;
 			gap: 0;
 		}
-		&:hover{
+
+		&:hover {
 			color: $light-blue;
-			svg{
-				path{
+
+			svg {
+				path {
 					stroke: $light-blue;
 				}
 			}
 		}
 	}
-	.btn{
+
+	.btn {
 		padding: 0 20px;
 		height: 40px;
 		font-size: 16px;
@@ -287,10 +341,12 @@
 		@include bp(xs) {
 			display: none;
 		}
+
 		&:focus,
 		&:hover {
 			background: $light-blue;
 		}
+
 		&:active {
 			background: $light-blue !important;
 		}
@@ -307,16 +363,19 @@
 	@include bp(md) {
 		display: flex;
 	}
+
 	&.active {
 		&:before {
 			opacity: 0;
 			transform: translate(-50%, -50%) scale(0);
 		}
+
 		&:after {
 			opacity: 1;
 			transform: translate(-50%, -50%) scale(1);
 		}
 	}
+
 	&:before,
 	&:after {
 		content: "";
@@ -326,6 +385,7 @@
 		background-color: $black;
 		transition: opacity ease 0.2s, transform ease 0.2s;
 	}
+
 	&:before {
 		width: 27px;
 		height: 18px;
@@ -340,6 +400,7 @@
 		opacity: 1;
 		transform: translate(-50%, -50%) scale(1);
 	}
+
 	&:after {
 		width: 18px;
 		height: 18px;
@@ -379,39 +440,45 @@
 		max-height: calc(100vh - 100px);
 		max-height: calc(100svh - 100px);
 	}
+
 	&.active {
 		@include bp(md) {
 			opacity: 1;
 			visibility: visible;
 		}
 	}
-	>.container {
+
+	> .container {
 		display: flex;
 		height: 100%;
 		flex-direction: column;
 	}
-	.btn{
+
+	.btn {
 		margin-top: 22px;
 	}
 }
 
-.mobile-menu__list{
+.mobile-menu__list {
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 120%;
-	>li{
-		>span{
+
+	> li {
+		> span {
 			display: flex;
 			align-items: center;
 			padding: 8px 0;
-			>i{
+
+			> i {
 				display: flex;
 				align-items: center;
 				justify-content: flex-end;
 				flex-grow: 1;
 				position: relative;
-				&:after{
+
+				&:after {
 					position: absolute;
 					content: '';
 					right: -15px;
@@ -423,17 +490,18 @@
 			}
 		}
 	}
-	a{
+
+	a {
 		color: $black;
-		&:hover{
+
+		&:hover {
 			color: $light-blue;
 		}
 	}
 }
 
 
-
-[class^="mobile-menu__lvl"]:not(.mobile-menu__lvl1){
+[class^="mobile-menu__lvl"]:not(.mobile-menu__lvl1) {
 	display: none;
 	position: absolute;
 	top: 0;
@@ -446,31 +514,37 @@
 	overflow: hidden;
 	overflow-y: auto;
 	z-index: 2;
-	&.show{
+
+	&.show {
 		display: flex;
 	}
-	>ul{
+
+	> ul {
 		padding: 22px 30px;
 		@include bp(xs) {
 			padding: 12px 20px;
 		}
-		>li{
-			>span{
+
+		> li {
+			> span {
 				display: flex;
 				align-items: center;
 				padding: 8px 0;
-				>a{
+
+				> a {
 					display: flex;
 					align-items: center;
 					gap: 8px;
 				}
-				>i{
+
+				> i {
 					display: flex;
 					align-items: center;
 					justify-content: flex-end;
 					flex-grow: 1;
 					position: relative;
-					&:after{
+
+					&:after {
 						position: absolute;
 						content: '';
 						right: -15px;
@@ -485,7 +559,7 @@
 	}
 }
 
-.menu-back{
+.menu-back {
 	display: flex;
 	align-items: center;
 	padding: 30px;
@@ -494,13 +568,15 @@
 	@include bp(xs) {
 		padding: 20px;
 	}
-	>i{
+
+	> i {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
 		width: 30px;
 		position: relative;
-		&:after{
+
+		&:after {
 			position: absolute;
 			content: '';
 			left: -15px;
@@ -509,16 +585,18 @@
 			width: calc(100% + 15px);
 			height: 30px;
 		}
-		svg{
+
+		svg {
 			transform: scale(-1, 1);
 		}
 	}
 }
 
-.mobile-menu__contacts{
+.mobile-menu__contacts {
 	margin-top: auto;
-	>li{
-		>a{
+
+	> li {
+		> a {
 			padding: 8px 0;
 			display: flex;
 			align-items: center;
@@ -528,14 +606,15 @@
 			line-height: 120%;
 			color: $black;
 			gap: 8px;
-			&:hover{
+
+			&:hover {
 				color: $light-blue;
 			}
 		}
 	}
 }
 
-.header-spacer{
+.header-spacer {
 	height: 138px;
 	@include bp(xs) {
 		height: 100px;
