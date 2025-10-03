@@ -618,6 +618,10 @@
 	}
 }
 
+.sub-menu .sub-menu li > span a + i {
+	display: none;
+}
+
 .header-spacer {
 	height: 138px;
 	@include bp(xs) {
