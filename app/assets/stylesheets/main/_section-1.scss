@@ -111,7 +111,7 @@
   .main-marquee__inner {
     display: flex;
     flex-shrink: 0;
-    animation: marqueeMain 15s linear infinite;
+    animation: marqueeMain 45s linear infinite;
     @include bp(md) {
       animation: marqueeMain 15s linear infinite;
     }
