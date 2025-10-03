@@ -1,5 +1,5 @@
 <?php
-
+add_theme_support( 'title-tag' );
 add_action('wp_enqueue_scripts', 'ehr_enqueue_scripts', 10, 3);
 function ehr_enqueue_scripts()
 {
