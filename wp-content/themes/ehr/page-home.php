@@ -29,8 +29,10 @@
                                 <?php } ?>
                             <?php } ?>
                         </ul>
-                    <?php endif; ?>
-                    <a href="<?= $main['button']['url'] ?>" class="btn"><?= $main['button']['title'] ?></a>
+                    <?php endif;?>
+                    <?php if(!empty($main['button'])){ ?>    
+                        <a href="<?= $main['button']['url'] ?>" class="btn"><?= $main['button']['title'] ?></a>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -281,6 +283,7 @@
     <div class="section section-settings">
         <div class="container">
             <div class="section-title"><?= $built_for['title'] ?></div>
+            <?php if(!empty($built_for['cards'])){ ?>
             <div class="row settings-wrapper">
                 <?php foreach ($built_for['cards'] as $card) { ?>
                     <div class="col-md-6">
@@ -292,6 +295,7 @@
                     </div>
                 <?php } ?>
             </div>
+            <?php } ?>
         </div>
     </div>
     <?php $our_approach = get_field('our_approach'); ?>
@@ -299,6 +303,7 @@
         <div class="container">
             <div class="section-title"><?= $our_approach['title'] ?></div>
             <div class="section-description"><?= $our_approach['subtitle'] ?></div>
+            <?php if(!empty($our_approach['blocks'])) { ?>
             <div class="row approach-wrapper">
                 <?php foreach ($our_approach['blocks'] as $block) { ?>
                     <div class="col-md-6">
@@ -310,12 +315,14 @@
                     </div>
                 <?php } ?>
             </div>
+            <?php } ?>
         </div>
     </div>
     <?php $faq = get_field('faq'); ?>
     <div class="section section-faq">
         <div class="container">
             <h2 class="section-title"><?= $faq['title'] ?>></h2>
+            <?php if(!empty($faq['questions'])){ ?>
             <div class="faq-list ete-accordion">
                 <?php foreach ($faq['questions'] as $question) { ?>
                     <div class="accordion-item">
@@ -336,6 +343,7 @@
                     </div>
                 <?php } ?>
             </div>
+            <?php } ?>
         </div>
     </div>
     <?php $certified = get_field('certified'); ?>
@@ -368,6 +376,7 @@
                 </div>
                 <div class="capterra-inner__text"><?= $capterra['title'] ?>
                 </div>
+                <?php if(!empty($capterra['ratings'])){ ?>
                 <div class="capterra-inner__rating">
                     <?php foreach ($capterra['ratings'] as $rating) { ?>
                         <div class="capterra-inner__rating-item">
@@ -381,11 +390,13 @@
                         </div>
                     <?php } ?>
                 </div>
+                <?php } ?>
             </div>
         </div>
         <div class="section-customer">
             <div class="container">
                 <div class="customer-inner">
+                    <?php if(!empty($capterra['comments'])){ ?>
                     <div class="customer-slider slick-slider" data-slick='{
     "slidesToShow": 1,
     "slidesToScroll": 1,
@@ -405,6 +416,7 @@
                             </div>
                         <?php } ?>
                     </div>
+                    <?php } ?>
                     <div class="customer-slider__arrows">
                         <div class="customer-slider__prev">
                             <svg width="6" height="12" viewBox="0 0 6 12" fill="none"

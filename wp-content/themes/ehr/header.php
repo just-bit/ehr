@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="robots" content="noindex, nofollow">
-    <title>EHR</title>
-    <?php wp_head(); ?>
-    <meta name="description" content="EHR descriprion">
     <link rel="icon" type="image/png" href="<?= get_template_directory_uri() ?>/images/favicon.png">
     <link rel="icon" type="image/x-icon" href="<?= get_template_directory_uri() ?>/images/favicon.ico">
     <meta name="theme-color" content="#0A5BB8">
     <meta name="msapplication-navbutton-color" content="#0A5BB8">
     <meta name="apple-mobile-web-app-status-bar-style" content="#0A5BB8">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <?php wp_head(); ?>
 </head>
 
 <body>
