@@ -113,7 +113,7 @@
     flex-shrink: 0;
     animation: marqueeMain 45s linear infinite;
     @include bp(md) {
-      animation: marqueeMain 20s linear infinite;
+      animation: marqueeMain 40s linear infinite;
     }
   }
   .slide {
