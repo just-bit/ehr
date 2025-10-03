@@ -50,6 +50,7 @@
                 'theme_location' => 'header_menu',
                 'menu_class' => 'header-menu',
                 'container' => false,
+                'depth' => 3,
                 'walker' => new Main_Menu_Walker_Nav_Menu()
             ]);
             ?>
@@ -76,6 +77,7 @@
                     'theme_location' => 'header_menu',
                     'menu_class' => 'mobile-menu__list',
                     'container' => false,
+                    'depth' => 3,
                     'walker' => new Mobile_Menu_Walker_Nav_Menu()
                 ]);
                 ?>
