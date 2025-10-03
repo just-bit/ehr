@@ -248,6 +248,10 @@
 									color: $black;
 									position: relative;
 
+									svg {
+										display: none;
+									}
+
 									&:hover {
 										color: $light-blue;
 									}
