@@ -105,13 +105,15 @@
 }
 
 .main-marquee {
+  display: flex;
   overflow: hidden;
   width: 100%;
   .main-marquee__inner {
     display: flex;
-    animation: marqueeMain 60s linear infinite;
+    flex-shrink: 0;
+    animation: marqueeMain 15s linear infinite;
     @include bp(md) {
-      animation: marqueeMain 30s linear infinite;
+      animation: marqueeMain 15s linear infinite;
     }
   }
   .slide {
