@@ -379,6 +379,7 @@
                 <?php if(!empty($capterra['ratings'])){ ?>
                 <div class="capterra-inner__rating">
                     <?php foreach ($capterra['ratings'] as $rating) { ?>
+                        <?php if(!empty($rating['rating'])){?>
                         <div class="capterra-inner__rating-item">
                             <span class="num"><?= $rating['rating'] ?> / 5</span>
                             <div class="stars">
@@ -388,6 +389,7 @@
                             </div>
                             <div class="text"><?= $rating['text'] ?></div>
                         </div>
+                        <?php } ?>
                     <?php } ?>
                 </div>
                 <?php } ?>
