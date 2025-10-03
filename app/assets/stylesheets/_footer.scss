@@ -35,6 +35,7 @@
 }
 
 .footer-logo {
+	display: block;
 	height: 35px;
 	margin-bottom: 36px;
 	@include bp(md) {

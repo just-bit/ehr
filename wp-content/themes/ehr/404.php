@@ -1,3 +1,5 @@
 <?php get_header(); ?>
-<p>404</p>
+<main>
+	<p style="text-align:center; margin-top: 50px;">404</p>
+</main>
 <?php get_footer(); ?>
