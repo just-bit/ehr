@@ -107,8 +107,11 @@
 .main-marquee {
   display: flex;
   overflow: hidden;
-  overflow-x: auto;
   width: 100%;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: thin;
+  overflow: hidden;
+  overflow-y: auto;
   .main-marquee__inner {
     display: flex;
     flex-shrink: 0;
