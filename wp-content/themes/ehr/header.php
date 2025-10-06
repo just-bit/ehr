@@ -52,11 +52,15 @@
 		<div class="container">
         <?php if (is_front_page()): ?>
 					<span class="header-logo">
-		        <img src="<?= get_template_directory_uri() ?>/images/logo.png" loading="lazy" alt="">
-	        </span>
+<!--		        <img src="--><?php //= get_template_directory_uri() ?><!--/images/logo.png" loading="lazy" alt="">-->
+		        <span>EHR|YourWay</span>
+		        <span>powered by Adaptamed</span>
+					</span>
         <?php else: ?>
 					<a href="/" class="header-logo">
-						<img src="<?= get_template_directory_uri() ?>/images/logo.png" loading="lazy" alt="">
+<!--						<img src="--><?php //= get_template_directory_uri() ?><!--/images/logo.png" loading="lazy" alt="">-->
+						<span>EHR|YourWay</span>
+						<span>powered by Adaptamed</span>
 					</a>
         <?php endif; ?>
         <?php

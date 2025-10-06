@@ -99,10 +99,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     marquee.addEventListener('mousemove', (e) => {
-        if (!isDown) return; // работает только при зажатой кнопке
+        if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - marquee.offsetLeft;
-        const walk = (x - startX) * 2; // скорость скролла
+        const walk = (x - startX) * 2;
         marquee.scrollLeft = scrollLeft - walk;
     });
 });
