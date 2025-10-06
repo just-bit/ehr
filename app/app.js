@@ -73,3 +73,36 @@ $(function () {
     $(".header-menu, .mobile-menu, .footer-menu").find('a:not([href])').attr('href', 'javascript:void(0)');
 
 });
+
+// marquee
+document.addEventListener('DOMContentLoaded', function () {
+    const marquee = document.querySelector('.main-marquee');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    marquee.addEventListener('mousedown', (e) => {
+        isDown = true;
+        marquee.classList.add('active');
+        startX = e.pageX - marquee.offsetLeft;
+        scrollLeft = marquee.scrollLeft;
+    });
+
+    marquee.addEventListener('mouseup', () => {
+        isDown = false;
+        marquee.classList.remove('active');
+    });
+
+    marquee.addEventListener('mouseleave', () => {
+        isDown = false;
+        marquee.classList.remove('active');
+    });
+
+    marquee.addEventListener('mousemove', (e) => {
+        if (!isDown) return; // работает только при зажатой кнопке
+        e.preventDefault();
+        const x = e.pageX - marquee.offsetLeft;
+        const walk = (x - startX) * 2; // скорость скролла
+        marquee.scrollLeft = scrollLeft - walk;
+    });
+});
