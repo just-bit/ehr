@@ -53,7 +53,7 @@
         <?php if (is_front_page()): ?>
 					<span class="header-logo">
 <!--		        <img src="--><?php //= get_template_directory_uri() ?><!--/images/logo.png" loading="lazy" alt="">-->
-		        <span>EHR|YourWay</span>
+		        <span>EHR<span>|</span>YourWay</span>
 		        <span>powered by Adaptamed</span>
 					</span>
         <?php else: ?>

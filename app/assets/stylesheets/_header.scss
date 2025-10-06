@@ -81,9 +81,12 @@
 		height: auto;
 		aspect-ratio: 240 / 50;
 	}
+
 	> span {
 		display: block;
+
 		&:nth-of-type(1) {
+			display: inline-block;
 			margin-bottom: -1px;
 			font-family: $logo;
 			font-size: 38px;
@@ -97,6 +100,19 @@
 			}
 			@include bp(xs) {
 				font-size: 27px;
+			}
+
+			> span {
+				font-size: 33px;
+				transform: translateY(-3px);
+				display: inline-block;
+				@include bp(lg) {
+					font-size: 26px;
+				}
+				@include bp(xs) {
+					font-size: 22px;
+					transform: translateY(-2px);
+				}
 			}
 		}
 
