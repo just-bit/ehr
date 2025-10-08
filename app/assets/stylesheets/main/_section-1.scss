@@ -117,7 +117,7 @@
 	scrollbar-width: thin;
 	overflow: hidden;
 	overflow-x: auto;
-	 @media screen and (max-width: 1490px) {
+	 @media screen and (max-width: 1439px) {
 		 justify-content: flex-start;
 	 }
 
@@ -150,6 +150,12 @@
 			flex-wrap: wrap;
 			gap: 20px;
 			height: 100%;
+			@media (max-width: 1490px) {
+				width: 250px;
+			}
+			@media (max-width: 1439px) {
+				width: 280px;
+			}
 
 			.num-block {
 				height: 115px;
@@ -163,6 +169,12 @@
 		.slide-variation-02 {
 			width: 250px;
 			height: 100%;
+			@media (max-width: 1490px) {
+				width: 230px;
+			}
+			@media (max-width: 1439px) {
+				width: 250px;
+			}
 
 			.pic-block {
 				height: 100%;
@@ -197,6 +209,12 @@
 			flex-wrap: wrap;
 			gap: 20px;
 			height: 100%;
+			@media (max-width: 1490px) {
+				width: 260px;
+			}
+			@media (max-width: 1439px) {
+				width: 280px;
+			}
 
 			.logo-block {
 				height: 115px;
