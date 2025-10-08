@@ -39,7 +39,7 @@
 		<div class="main-marquee">
         <?php $marquee = get_field('marquee'); ?>
         <?php if (!empty($marquee)) { ?>
-            <?php foreach (range(1, 3) as $i) { ?>
+<!--            --><?php //foreach (range(1, 3) as $i) { ?>
 						<div class="main-marquee__inner">
                 <?php foreach ($marquee as $item) { ?>
                     <?php if (!empty($item)): ?>
@@ -137,7 +137,7 @@
                     <?php endif; ?>
                 <?php } ?>
 						</div>
-            <?php } ?>
+<!--            --><?php //} ?>
         <?php } ?>
 		</div>
 	</div>

@@ -76,33 +76,41 @@ $(function () {
 
 // marquee
 document.addEventListener('DOMContentLoaded', function () {
-    const marquee = document.querySelector('.main-marquee');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
+    function initMarquee() {
+        const marquee = document.querySelector('.main-marquee');
+        if (!marquee) return;
 
-    marquee.addEventListener('mousedown', (e) => {
-        isDown = true;
-        marquee.classList.add('active');
-        startX = e.pageX - marquee.offsetLeft;
-        scrollLeft = marquee.scrollLeft;
-    });
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-    marquee.addEventListener('mouseup', () => {
-        isDown = false;
-        marquee.classList.remove('active');
-    });
+        marquee.addEventListener('mousedown', (e) => {
+            if (window.innerWidth > 1480) return;
+            isDown = true;
+            marquee.classList.add('active');
+            startX = e.pageX - marquee.offsetLeft;
+            scrollLeft = marquee.scrollLeft;
+        });
 
-    marquee.addEventListener('mouseleave', () => {
-        isDown = false;
-        marquee.classList.remove('active');
-    });
+        marquee.addEventListener('mouseup', () => {
+            isDown = false;
+            marquee.classList.remove('active');
+        });
 
-    marquee.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - marquee.offsetLeft;
-        const walk = (x - startX) * 2;
-        marquee.scrollLeft = scrollLeft - walk;
-    });
+        marquee.addEventListener('mouseleave', () => {
+            isDown = false;
+            marquee.classList.remove('active');
+        });
+
+        marquee.addEventListener('mousemove', (e) => {
+            if (!isDown || window.innerWidth > 1480) return;
+            e.preventDefault();
+            const x = e.pageX - marquee.offsetLeft;
+            const walk = (x - startX) * 2;
+            marquee.scrollLeft = scrollLeft - walk;
+        });
+    }
+
+    initMarquee();
 });
+
