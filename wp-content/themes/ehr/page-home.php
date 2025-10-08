@@ -39,8 +39,7 @@
 		<div class="main-marquee">
         <?php $marquee = get_field('marquee'); ?>
         <?php if (!empty($marquee)) { ?>
-<!--            --><?php //foreach (range(1, 3) as $i) { ?>
-						<div class="main-marquee__inner">
+						<div class="main-marquee__inner" data-marquee-content>
                 <?php foreach ($marquee as $item) { ?>
                     <?php if (!empty($item)): ?>
                         <?php $marquee_row_1 = $item['row_1'] ?>
