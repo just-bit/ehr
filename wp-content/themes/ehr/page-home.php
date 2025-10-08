@@ -321,7 +321,7 @@
     <?php $faq = get_field('faq'); ?>
 	<div class="section section-faq">
 		<div class="container">
-			<h2 class="section-title"><?= $faq['title'] ?>></h2>
+			<h2 class="section-title"><?= $faq['title'] ?></h2>
         <?php if (!empty($faq['questions'])) { ?>
 					<div class="faq-list ete-accordion">
               <?php foreach ($faq['questions'] as $question) { ?>
