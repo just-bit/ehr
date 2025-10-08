@@ -84,16 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let isInitialized = false;
     let originalContent = null;
-    let handlers = {
-        mousedown: null,
-        mouseup: null,
-        mouseleave: null,
-        mousemove: null,
-        touchstart: null,
-        touchend: null,
-        touchmove: null,
-        scroll: null
-    };
+    let scrollHandler = null;
 
     function initMarquee() {
         if (isInitialized || window.innerWidth > 1480) return;
@@ -103,99 +94,48 @@ document.addEventListener('DOMContentLoaded', function () {
             originalContent = marqueeInner.innerHTML;
         }
 
-        // Clone content for infinite scroll
-        marqueeInner.innerHTML = originalContent + originalContent + originalContent;
+        // Clone content for infinite scroll (25 copies for smoother transitions)
+        let contentClones = '';
+        for (let i = 0; i < 25; i++) {
+            contentClones += originalContent;
+        }
+        marqueeInner.innerHTML = contentClones;
 
-        // Set initial position to center
+        // Set initial position to center (13th copy)
         setTimeout(() => {
             const scrollWidth = marquee.scrollWidth;
-            marquee.scrollLeft = scrollWidth / 3;
+            marquee.scrollLeft = (scrollWidth / 25) * 12;
         }, 100);
 
-        let isDown = false;
-        let startX;
-        let startY;
-        let scrollLeft;
-        let isDragging = false;
-
-        // Mouse events
-        handlers.mousedown = (e) => {
-            isDown = true;
-            isDragging = false;
-            marquee.classList.add('active');
-            startX = e.pageX - marquee.offsetLeft;
-            scrollLeft = marquee.scrollLeft;
-        };
-
-        handlers.mouseup = () => {
-            isDown = false;
-            marquee.classList.remove('active');
-        };
-
-        handlers.mouseleave = () => {
-            isDown = false;
-            marquee.classList.remove('active');
-        };
-
-        handlers.mousemove = (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            isDragging = true;
-            const x = e.pageX - marquee.offsetLeft;
-            const walk = (x - startX) * 2;
-            marquee.scrollLeft = scrollLeft - walk;
-        };
-
-        // Touch events for mobile
-        handlers.touchstart = (e) => {
-            isDown = true;
-            isDragging = false;
-            startX = e.touches[0].pageX - marquee.offsetLeft;
-            startY = e.touches[0].pageY;
-            scrollLeft = marquee.scrollLeft;
-        };
-
-        handlers.touchend = () => {
-            isDown = false;
-        };
-
-        handlers.touchmove = (e) => {
-            if (!isDown) return;
+        // Infinite scroll logic with seamless looping
+        let scrollTimeout;
+        
+        scrollHandler = () => {
+            clearTimeout(scrollTimeout);
             
-            const x = e.touches[0].pageX - marquee.offsetLeft;
-            const y = e.touches[0].pageY;
-            const walkX = Math.abs(x - startX);
-            const walkY = Math.abs(y - startY);
+            // Wait for scroll to stop before repositioning
+            scrollTimeout = setTimeout(() => {
+                const scrollWidth = marquee.scrollWidth;
+                const segmentWidth = scrollWidth / 25;
+                const currentScroll = marquee.scrollLeft;
 
-            // Check if the movement is horizontal
-            if (walkX > walkY && walkX > 5) {
-                isDragging = true;
-                const walk = (x - startX) * 1.5;
-                marquee.scrollLeft = scrollLeft - walk;
-            }
-        };
-
-        // Infinite scroll logic
-        handlers.scroll = () => {
-            const scrollWidth = marquee.scrollWidth;
-            const oneThird = scrollWidth / 3;
-
-            if (marquee.scrollLeft <= 0) {
-                marquee.scrollLeft = oneThird;
-            } else if (marquee.scrollLeft >= oneThird * 2) {
-                marquee.scrollLeft = oneThird;
-            }
+                // Calculate position within current segment
+                const positionInSegment = currentScroll % segmentWidth;
+                
+                // If we're in the first few or last few segments, jump to the center
+                if (currentScroll < segmentWidth * 5) {
+                    // First segments - jump to center
+                    marquee.scrollLeft = segmentWidth * 12 + positionInSegment;
+                } 
+                else if (currentScroll > segmentWidth * 20) {
+                    // Last segments - jump to center
+                    marquee.scrollLeft = segmentWidth * 12 + positionInSegment;
+                }
+            }, 100);
         };
 
         // Add event listeners
-        marquee.addEventListener('mousedown', handlers.mousedown);
-        marquee.addEventListener('mouseup', handlers.mouseup);
-        marquee.addEventListener('mouseleave', handlers.mouseleave);
-        marquee.addEventListener('mousemove', handlers.mousemove);
-        marquee.addEventListener('touchstart', handlers.touchstart, { passive: true });
-        marquee.addEventListener('touchend', handlers.touchend, { passive: true });
-        marquee.addEventListener('touchmove', handlers.touchmove, { passive: true });
-        marquee.addEventListener('scroll', handlers.scroll);
+        marquee.addEventListener('scroll', scrollHandler, { passive: true });
 
         isInitialized = true;
     }
@@ -204,14 +144,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isInitialized) return;
 
         // Remove event listeners
-        marquee.removeEventListener('mousedown', handlers.mousedown);
-        marquee.removeEventListener('mouseup', handlers.mouseup);
-        marquee.removeEventListener('mouseleave', handlers.mouseleave);
-        marquee.removeEventListener('mousemove', handlers.mousemove);
-        marquee.removeEventListener('touchstart', handlers.touchstart);
-        marquee.removeEventListener('touchend', handlers.touchend);
-        marquee.removeEventListener('touchmove', handlers.touchmove);
-        marquee.removeEventListener('scroll', handlers.scroll);
+        if (scrollHandler) {
+            marquee.removeEventListener('scroll', scrollHandler);
+        }
 
         // Restore original content
         if (originalContent) {
@@ -219,7 +154,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         marquee.scrollLeft = 0;
-        marquee.classList.remove('active');
         isInitialized = false;
     }
 
