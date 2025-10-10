@@ -4,11 +4,13 @@
 			<div class="footer-main__logo">
           <?php if (is_front_page()): ?>
 						<div class="footer-logo">
-							<img src="<?= get_template_directory_uri() ?>/images/footer-logo.png" loading="lazy" alt="logo">
+							<!--<img src="<?/*= get_template_directory_uri() */?>/images/footer-logo.png" loading="lazy" alt="logo">-->
+                            Adaptamed
 						</div>
           <?php else: ?>
 						<a href="/" class="footer-logo">
-							<img src="<?= get_template_directory_uri() ?>/images/footer-logo.png" loading="lazy" alt="logo">
+							<!--<img src="<?/*= get_template_directory_uri() */?>/images/footer-logo.png" loading="lazy" alt="logo">-->
+                            Adaptamed
 						</a>
           <?php endif; ?>
 				<div class="footer-contacts">
